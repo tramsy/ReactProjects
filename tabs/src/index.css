@@ -1,0 +1,105 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #eff3f7;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1{
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+main{
+  width: 90%;
+  margin: 5em auto;
+  text-align: center;
+}
+article{
+  width: 90%;
+  margin: 2em auto;
+  display: flex;
+
+}
+.companies{
+  width: 30%;
+  /* border: 2px solid crimson; */
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.btn{
+  width: 50%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  border: none;
+  color: #121212;
+  background: #eff3f7;
+}
+
+.btn:hover{
+  border-left: 3px solid #2eb5c1;
+  color: #2eb5c1;
+  cursor: pointer;
+}
+
+
+.active{
+  border-left: 3px solid #2eb5c1;
+  color: #2eb5c1;
+}
+.job-details{
+  width: 70%;
+  text-align: left;
+  /* border: 2px solid cornflowerblue; */
+}
+h2{
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+h4{
+  width: max-content;
+  padding: .2em 1em;
+  color: #617c97;
+  border-radius: 5px;
+  background: #d9e1ec;
+}
+p{
+  margin-top: .5em;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  color: #617c97;
+}
+.task{
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+li{
+  color: #354250;
+  list-style: square;
+}
+.info-btn{
+  width: 30%;
+  padding: .5em .5em;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  background: skyblue;
+  border: none;
+}
