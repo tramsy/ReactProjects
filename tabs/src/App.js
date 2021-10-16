@@ -21,10 +21,8 @@ function App(){
         }
     }
 
-    const doFilter = (value = 'recAGJfiU4CeaV0HL')=>{
+    const doFilter = (value)=>{
         setIndex(value)
-        let newJobs = jobs.filter((item)=>item.id === value)
-        console.log(newJobs)
     }
 
 
@@ -58,8 +56,6 @@ function App(){
                  {
                     jobs.map((item)=>{
                         const{id, title, company, dates, duties} = item;
-                        console.log(id);
-                        console.log('index: ', index);
                         if(id === index){
                             return(
                                 <div key = {id}>

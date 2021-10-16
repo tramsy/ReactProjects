@@ -47,6 +47,7 @@ article{
   border: none;
   color: #121212;
   background: #eff3f7;
+  transition: all .3s linear;
 }
 
 .btn:hover{
