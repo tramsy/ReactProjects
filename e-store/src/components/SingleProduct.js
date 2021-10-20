@@ -7,7 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 const SingleProduct = ()=>
 {
 
-    const{ singleProduct, dispatch, cart, showToast } = useContext(AppContext);
+    const{ singleProduct, dispatch } = useContext(AppContext);
 
     if(singleProduct !== null)
     {

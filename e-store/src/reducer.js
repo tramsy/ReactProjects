@@ -1,4 +1,8 @@
 import {data} from './data';
+import { addItemToStorage, updateItemStorage, getStorage } from './LocalStorageManager';
+
+
+
 
 export const reducer = (state, action)=>
 {
@@ -13,14 +17,17 @@ export const reducer = (state, action)=>
 
     if(action.type === 'itemTotal')
     {
-        if(state.cart.length > 0)
+        let arr = getStorage();
+        if(arr.length > 0)
         {
-            let tmp =  state.cart.map(item=>item.amount);
+            
+            let tmp =  arr.map(item=>item.amount);
             tmp = tmp.reduce((initial, current)=>initial + current);
             state.quantity = tmp;
             return{...state}
         }
         else{
+           
             state.quantity = 0;
         }
         return{...state}
@@ -37,23 +44,27 @@ export const reducer = (state, action)=>
     if(action.type === 'normal')
     {
         state.showToast = false;
-        console.log(state.showToast)
         return{...state}
     }
 
 
     if(action.type === 'addToCart')
     {
+
         if(state.cart.length > 0)
         {
 
             let index = state.cart.findIndex(obj=>obj.id == action.item.id);
             if(index !== -1){
                 state.cart[index].amount = state.cart[index].amount + 1;
+                // localStorage.setItem('list', JSON.stringify( state.cart ))
+                updateItemStorage(action.item);
                 state.showToast = true;
                 return {...state, cart:[...state.cart]}
             } 
         }
+        // localStorage.setItem('list', JSON.stringify( state.cart ))
+        addItemToStorage(action.item);
         state.showToast= true
         return{...state, cart: [...state.cart, action.item]};
     }
@@ -85,6 +96,7 @@ export const reducer = (state, action)=>
         state.singleProduct = data[tmp];
         return {...state}
     }
+
 
 
 }

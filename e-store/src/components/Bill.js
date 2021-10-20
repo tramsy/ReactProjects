@@ -1,20 +1,21 @@
 import { useContext, useEffect } from 'react';
 import { IoBagCheckOutline } from 'react-icons/all';
 import { AppContext } from '../Context';
+import { getStorage } from '../LocalStorageManager';
 
 const Bill = ()=>
 {
 
     const{ cart, total, dispatch } = useContext(AppContext);
+    const arr = getStorage();
 
     const createBill = ()=>
     {
-        if(cart.length > 0)
+        if(arr.length > 0)
         {
-            console.log('getcalled')
-            let arr = cart.map(item=> item.amount * item.price)
-            arr  = arr.reduce((pre, current)=> pre + current );
-            dispatch({type: 'createBill', payload: arr})
+            let tmparr = arr.map(item=> item.amount * item.price)
+            tmparr  = tmparr.reduce((pre, current)=> pre + current );
+            dispatch({type: 'createBill', payload: tmparr})
         }
         else{
             dispatch({type: 'createBill', payload: 0})
