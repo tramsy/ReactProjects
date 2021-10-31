@@ -1,13 +1,34 @@
-import { Route, Switch } from "react-router";
-import Home from "./Home";
-import Quiz from "./Quiz";
+import { useContext } from "react";
+import QuestionPaper from "./components/QuestionPaper";
+import QuestionForm from "./components/QuestionForm";
+import { AppContext } from "./Context";
 
-function App(){
+function App()
+{
+    const{ hidePaper, hideResult, backToNorm, percentage } = useContext(AppContext);
+
+    if(!hideResult)
+    {
+        return(
+            <section className='result'>
+            <div>
+                <h2>Congrats</h2>
+                <p className="para">You answered  {percentage}% question correctly</p>
+                <div>
+                    <button className="next-btn" onClick = { backToNorm } >Play again</button>
+                </div>
+            </div>
+        </section>
+        )
+    }
+
     return(<main>
-        <Switch>
-            <Route path='/' component={Home} exact />
-            <Route path='/quiz' component={Quiz}  />
-        </Switch>
+        {
+            !hidePaper && <QuestionPaper />
+        }
+        {
+            hidePaper && <QuestionForm />
+        }
     </main>)
 }
 
